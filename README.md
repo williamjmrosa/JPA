@@ -1,4 +1,4 @@
-## [Linguagem de Programação Orientada a Objetos 2](https://aula-java.github.io/aulas/lpoo-2.html)
+## [Linguagem de Programação Orientada a Objetos 2](https://rodrigonoll.github.io/java/lpoo-2.html)
 
 ### [Exercício: JPA](https://aula-java.github.io/aulas/jpa/)
 
