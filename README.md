@@ -3,4 +3,4 @@
 ### [Exercício: JPA](https://rodrigonoll.github.io/aula/java-jpa/)
 
 1. Implemente, a partir de um projeto do Maven, a estrutura abaixo juntamente com respectivos DAO's e testes de unidade.
-<img src="https://rodrigonoll.github.io/aula/jpa/img/exerc.png">
+<img src="https://rodrigonoll.github.io/aula/java-jpa/img/exerc.png">
