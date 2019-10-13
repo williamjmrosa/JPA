@@ -27,5 +27,6 @@ public class PessoaFisica extends Pessoa implements Serializable {
 	private String cpf;
 	private String rg;
 	private Date dataNascimento;
+	private Sexo sexo;
 	
 }
