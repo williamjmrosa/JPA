@@ -31,7 +31,7 @@ public class Diaria implements Serializable {
 	@ManyToOne
 	@JoinColumn (name = "NUMERO_QUARTO")
 	private Quarto quarto;
-	@ManyToMany (mappedBy = "diarias")
+	@ManyToMany
 	private Collection<PessoaFisica> hospedes;
 	
 	public void hospedesAdd(PessoaFisica pessoaFisica) {
