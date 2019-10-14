@@ -29,7 +29,7 @@ public class PessoaFisica extends Pessoa implements Serializable {
 	private String rg;
 	private Date dataNascimento;
 	private Sexo sexo;
-	ManyToMany
+	@ManyToMany (mappedBy = "hospedes")
 	private Collection<Diaria> diarias;
 	
 	public void addDiarias(Diaria diaria){
