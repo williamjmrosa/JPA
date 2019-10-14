@@ -23,12 +23,18 @@ public class Reserva implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
+	
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	@Id
 	private Long id;
 	private Date data;
 	private double valor;
-	
+	@ManyToOne
+	@JoinColumn (name = "id_pessoa")
+	private Pessoa cliente;
+	@OneToOne 
+	@JoinColumn(name = "id_diaria")
+	private DiariaReservada diarias;
 	
    
 }
