@@ -6,6 +6,11 @@
 		<class>br.edu.ifrs.canoas.jee.jpa.pojo.Pessoa</class>
 		<class>br.edu.ifrs.canoas.jee.jpa.pojo.PessoaJuridica</class>
 		<class>br.edu.ifrs.canoas.jee.jpa.pojo.PessoaFisica</class>
+		<class>br.edu.ifrs.canoas.jee.jpa.pojo.Diaria</class>
+		<class>br.edu.ifrs.canoas.jee.jpa.pojo.Quarto</class>
+		<class>br.edu.ifrs.canoas.jee.jpa.pojo.DiariaAvulsa</class>
+		<class>br.edu.ifrs.canoas.jee.jpa.pojo.DiariaReservada</class>
+		<class>br.edu.ifrs.canoas.jee.jpa.pojo.Reserva</class>
 
 		<properties>
 		    <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>

@@ -1,7 +1,6 @@
 package br.edu.ifrs.canoas.jee.jpa.pojo;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -12,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Entity implementation class for Entity: PessoaFisica
+ * Entity implementation class for Entity: Reserva
  *
  */
 @Entity
@@ -20,20 +19,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PessoaFisica extends Pessoa implements Serializable {
+public class Reserva implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
-
-	private String cpf;
-	private String rg;
-	private Date dataNascimento;
-	private Sexo sexo;
-	ManyToMany
-	private Collection<Diaria> diarias;
+	@GeneratedValue (strategy = GenerationType.AUTO)
+	@Id
+	private Long id;
+	private Date data;
+	private double valor;
 	
-	public void addDiarias(Diaria diaria){
-		diarias.add(diaria);
-	}
 	
+   
 }
