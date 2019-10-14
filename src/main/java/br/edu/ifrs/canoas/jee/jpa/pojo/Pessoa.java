@@ -1,6 +1,8 @@
 package br.edu.ifrs.canoas.jee.jpa.pojo;
 
 import java.io.Serializable;
+import java.util.Collection;
+
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
@@ -28,5 +30,17 @@ public class Pessoa implements Serializable {
 	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn (name = "id_endereco")
 	private Endereco endereco;
+	@OneToMany (mappedBy = "cliente")
+	private Collection<Reserva> reservas;
+	@OneToMany (mappedBy = "cliente")
+	private Collection<DiariaAvulsa> diariasAvulsas;
+	
+	public void addReserva(Reserva reserva) {
+		reservas.add(reserva);
+	}
+	
+	public void addDiariasAvulsal(DiariaAvulsa diariaAvulsa) {
+		diariasAvulsas.add(diariaAvulsa);
+	}
    
 }
