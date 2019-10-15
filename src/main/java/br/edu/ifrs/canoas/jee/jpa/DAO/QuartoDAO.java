@@ -5,52 +5,53 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import br.edu.ifrs.canoas.jee.jpa.pojo.Diaria;
+import br.edu.ifrs.canoas.jee.jpa.pojo.Quarto;
+import br.edu.ifrs.canoas.jee.jpa.pojo.Reserva;
 import br.edu.ifrs.canoas.jee.jpa.util.EntityManagerUtil;
 
-public class DiariaDAO {
-
+public class QuartoDAO {
+	
 	EntityManager em;
 	
-	public DiariaDAO() {
+	public QuartoDAO() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public void salva(Diaria diaria) {
+
+	public void salva(Quarto quarto) {
 		em = EntityManagerUtil.getEM();
 		em.getTransaction().begin();
-		em.persist(diaria);
+		em.persist(quarto);
 		em.getTransaction().commit();
 		em.close();
 	}
 	
-	public void atualiza(Diaria diaria) {
+	public void atualiza(Quarto quarto) {
 		em = EntityManagerUtil.getEM();
 		em.getTransaction().begin();
-		em.persist(diaria);
+		em.persist(quarto);
 		em.getTransaction().commit();
 		em.close();
 	}
 	
 	public void remove(Long id) {
 		em = EntityManagerUtil.getEM();
-		Diaria diaria = em.find(Diaria.class, id);
-		em.remove(diaria);
+		Quarto quarto = em.find(Quarto.class, id);
+		em.remove(quarto);
 		em.close();
 	}
 	
-	public Diaria busca(Long id) {
+	public Quarto busca(Long id) {
 		em = EntityManagerUtil.getEM();
-		Diaria diaria = em.find(Diaria.class, id);
+		Quarto quarto = em.find(Quarto.class, id);
 		em.close();
-		return diaria;
+		return quarto;
 	}
 	
-	public List<Diaria> busca(){
+	public List<Quarto> busca(){
 		em = EntityManagerUtil.getEM();
-		TypedQuery<Diaria> query = em.createQuery("SELECT d FROM Diaria d",Diaria.class);
-		List<Diaria> diarias = query.getResultList();
-		return diarias;
+		TypedQuery<Quarto> query = em.createQuery("SELECT q FROM Quarto q",Quarto.class);
+		List<Quarto> quartos = query.getResultList();
+		return quartos;
 	}
 	
 }

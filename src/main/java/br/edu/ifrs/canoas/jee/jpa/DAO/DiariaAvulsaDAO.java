@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import br.edu.ifrs.canoas.jee.jpa.pojo.DiariaAvulsa;
 import br.edu.ifrs.canoas.jee.jpa.util.EntityManagerUtil;
 
 public class DiariaAvulsaDAO {
@@ -15,7 +16,7 @@ public class DiariaAvulsaDAO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void salva(DiariaAvulsaDAO diariaAvulsa) {
+	public void salva(DiariaAvulsa diariaAvulsa) {
 		em = EntityManagerUtil.getEM();
 		em.getTransaction().begin();
 		em.persist(diariaAvulsa);
@@ -23,7 +24,7 @@ public class DiariaAvulsaDAO {
 		em.close();
 	}
 	
-	public void atualiza(DiariaAvulsaDAO diariaAvulsa) {
+	public void atualiza(DiariaAvulsa diariaAvulsa) {
 		em = EntityManagerUtil.getEM();
 		em.getTransaction().begin();
 		em.persist(diariaAvulsa);
@@ -33,22 +34,22 @@ public class DiariaAvulsaDAO {
 	
 	public void remove(Long id) {
 		em = EntityManagerUtil.getEM();
-		DiariaAvulsaDAO diariaAvulsa = em.find(DiariaAvulsaDAO.class, id);
+		DiariaAvulsa diariaAvulsa = em.find(DiariaAvulsa.class, id);
 		em.remove(diariaAvulsa);
 		em.close();
 	}
 	
-	public DiariaAvulsaDAO busca(Long id) {
+	public DiariaAvulsa busca(Long id) {
 		em = EntityManagerUtil.getEM();
-		DiariaAvulsaDAO diariaAvulsa = em.find(DiariaAvulsaDAO.class, id);
+		DiariaAvulsa diariaAvulsa = em.find(DiariaAvulsa.class, id);
 		em.close();
 		return diariaAvulsa;
 	}
 	
-	public List<DiariaAvulsaDAO> busca(){
+	public List<DiariaAvulsa> busca(){
 		em = EntityManagerUtil.getEM();
-		TypedQuery<DiariaAvulsaDAO> query = em.createQuery("SELECT da FROM DiariaAvulsa da",DiariaAvulsaDAO.class);
-		List<DiariaAvulsaDAO> diariaAvulsas = query.getResultList();
+		TypedQuery<DiariaAvulsa> query = em.createQuery("SELECT da FROM DiariaAvulsa da",DiariaAvulsa.class);
+		List<DiariaAvulsa> diariaAvulsas = query.getResultList();
 		return diariaAvulsas;
 	}
 	
