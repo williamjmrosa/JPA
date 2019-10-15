@@ -27,7 +27,7 @@ public class DiariaReservadaDAO {
 	public void atualiza(DiariaReservada diariaReservada) {
 		em = EntityManagerUtil.getEM();
 		em.getTransaction().begin();
-		em.persist(diariaReservada);
+		em.merge(diariaReservada);
 		em.getTransaction().commit();
 		em.close();
 	}

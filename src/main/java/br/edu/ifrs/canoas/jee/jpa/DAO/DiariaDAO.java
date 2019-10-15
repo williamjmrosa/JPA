@@ -27,21 +27,32 @@ public class DiariaDAO {
 	public void atualiza(Diaria diaria) {
 		em = EntityManagerUtil.getEM();
 		em.getTransaction().begin();
-		em.persist(diaria);
+		em.merge(diaria);
 		em.getTransaction().commit();
 		em.close();
 	}
 	
 	public void remove(Long id) {
 		em = EntityManagerUtil.getEM();
+		em.getTransaction().begin();
 		Diaria diaria = em.find(Diaria.class, id);
 		em.remove(diaria);
+		em.getTransaction().commit();
 		em.close();
 	}
 	
 	public Diaria busca(Long id) {
 		em = EntityManagerUtil.getEM();
 		Diaria diaria = em.find(Diaria.class, id);
+		em.close();
+		return diaria;
+	}
+	
+	public Diaria buscaCompleta(Long id) {
+		em = EntityManagerUtil.getEM();
+		TypedQuery<Diaria> query = em.createQuery("SELECT d FROM Diaria d where d.id = :id",Diaria.class);
+		query.setParameter("id", id);
+		Diaria diaria = query.getSingleResult();
 		em.close();
 		return diaria;
 	}

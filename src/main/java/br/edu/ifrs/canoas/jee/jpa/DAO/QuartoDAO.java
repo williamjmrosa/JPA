@@ -28,19 +28,21 @@ public class QuartoDAO {
 	public void atualiza(Quarto quarto) {
 		em = EntityManagerUtil.getEM();
 		em.getTransaction().begin();
-		em.persist(quarto);
+		em.merge(quarto);
 		em.getTransaction().commit();
 		em.close();
 	}
 	
-	public void remove(Long id) {
+	public void remove(String id) {
 		em = EntityManagerUtil.getEM();
+		em.getTransaction().begin();
 		Quarto quarto = em.find(Quarto.class, id);
 		em.remove(quarto);
+		em.getTransaction().commit();
 		em.close();
 	}
 	
-	public Quarto busca(Long id) {
+	public Quarto busca(String id) {
 		em = EntityManagerUtil.getEM();
 		Quarto quarto = em.find(Quarto.class, id);
 		em.close();

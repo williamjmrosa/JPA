@@ -3,10 +3,12 @@ package br.edu.ifrs.canoas.jee.jpa.pojo;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
 public class Diaria implements Serializable {
 
@@ -32,7 +35,7 @@ public class Diaria implements Serializable {
 	@JoinColumn (name = "NUMERO_QUARTO")
 	private Quarto quarto;
 	@ManyToMany
-	private Collection<PessoaFisica> hospedes;
+	private List<PessoaFisica> hospedes;
 	
 	public void hospedesAdd(PessoaFisica pessoaFisica) {
 		hospedes.add(pessoaFisica);

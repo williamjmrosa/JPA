@@ -27,7 +27,7 @@ public class ReservaDAO {
 	public void atualiza(Reserva reserva) {
 		em = EntityManagerUtil.getEM();
 		em.getTransaction().begin();
-		em.persist(reserva);
+		em.merge(reserva);
 		em.getTransaction().commit();
 		em.close();
 	}
