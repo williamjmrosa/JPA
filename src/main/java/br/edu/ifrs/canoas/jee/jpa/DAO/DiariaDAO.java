@@ -50,9 +50,8 @@ public class DiariaDAO {
 	
 	public Diaria buscaCompleta(Long id) {
 		em = EntityManagerUtil.getEM();
-		TypedQuery<Diaria> query = em.createQuery("SELECT d FROM Diaria d where d.id = :id",Diaria.class);
-		query.setParameter("id", id);
-		Diaria diaria = query.getSingleResult();
+		Diaria diaria = em.find(Diaria.class, id);
+		diaria.getHospedes().size();
 		em.close();
 		return diaria;
 	}

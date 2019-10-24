@@ -45,6 +45,15 @@ public class PessoaFisicaDAO {
 	public PessoaFisica buscaId(Long id) {
 		em = EntityManagerUtil.getEM();
 		PessoaFisica pessoaFisica = em.find(PessoaFisica.class, id);
+		pessoaFisica.getDiarias().size();
+		em.close();
+		return pessoaFisica;
+	}
+	
+	public PessoaFisica buscaCompleta(Long id) {
+		em = EntityManagerUtil.getEM();
+		PessoaFisica pessoaFisica = em.find(PessoaFisica.class, id);
+		pessoaFisica.getDiarias().size();
 		em.close();
 		return pessoaFisica;
 	}

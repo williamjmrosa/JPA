@@ -3,6 +3,7 @@ package br.edu.ifrs.canoas.jee.jpa.pojo;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -30,7 +31,7 @@ public class PessoaFisica extends Pessoa implements Serializable {
 	private Date dataNascimento;
 	private Sexo sexo;
 	@ManyToMany (mappedBy = "hospedes")
-	private Collection<Diaria> diarias;
+	private List<Diaria> diarias;
 	
 	public void addDiarias(Diaria diaria){
 		diarias.add(diaria);

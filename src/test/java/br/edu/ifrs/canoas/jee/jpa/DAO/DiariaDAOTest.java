@@ -150,9 +150,13 @@ public class DiariaDAOTest {
 		dDAO.salva(diaria);
 		// verifica se salvo
 		assertThat(diaria.getId()).isNotNull();
-		Diaria busca = dDAO.busca(diaria.getId());
+		Diaria busca = dDAO.buscaCompleta(diaria.getId());
 
 		assertThat(busca.getHospedes().get(0).getNome()).isEqualTo(pf.getNome());
+		
+		PessoaFisica buscaPf = pfDAO.buscaCompleta(busca.getHospedes().get(0).getId());
+		
+		assertThat(buscaPf.getDiarias().get(0).getId()).isEqualTo(diaria.getId());
 	}
 
 }
